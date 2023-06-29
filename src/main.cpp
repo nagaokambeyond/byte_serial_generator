@@ -19,13 +19,12 @@ void carry(const int idx) {
         return;
     }
     const int next_idx = idx - 1;
-    if (next_idx >= 0) {
-        arr.at(idx) = 0;
-        arr.at(next_idx) += 1;
-        carry(next_idx);
-    } else {
-        display();
+    if (next_idx < 0) {
+        return;
     }
+    arr.at(idx) = 0;
+    arr.at(next_idx) += 1;
+    carry(next_idx);
 }
 
 bool is_end() {
