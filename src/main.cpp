@@ -1,8 +1,9 @@
 #include <iomanip>
 #include <iostream>
+#include <vector>
 
 const short MAX_VAL = 255;
-short arr[] = {0, 0, 0, 0};
+std::vector<short> arr = {0, 0, 0, 0};
 
 void display() {
     for (short val : arr) {
@@ -12,13 +13,13 @@ void display() {
 }
 
 void carry(int idx) {
-    if (arr[idx] <= MAX_VAL) {
+    if (arr.at(idx) <= MAX_VAL) {
         return;
     }
     int next_idx = idx - 1;
     if (next_idx >= 0) {
-        arr[idx] = 0;
-        arr[next_idx] += 1;
+        arr.at(idx) = 0;
+        arr.at(next_idx) += 1;
         carry(next_idx);
     } else {
         display();
@@ -34,20 +35,21 @@ bool is_end() {
     return true;
 }
 int main() {
-    int tail = (sizeof(arr) / sizeof(short)) - 1;
-    for (int idx = 0; idx <= tail; idx += 1) {
-        arr[idx] = 0;
+
+    int tail = arr.size() - 1;
+    for (std::size_t idx = 0; idx < arr.size(); idx += 1) {
+        arr.at(idx) = 0;
     }
 
     do {
         for (short val = 0; val <= MAX_VAL; val += 1) {
-            arr[tail] = val;
+            arr.at(tail) = val;
             // display();
         }
         if (is_end()) {
             break;
         }
-        arr[tail] += 1;
+        arr.at(tail) += 1;
         carry(tail);
     } while (!is_end());
     display();
