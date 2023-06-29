@@ -31,11 +31,8 @@ bool is_end() {
     return std::all_of(arr.begin(), arr.end(), [](short val) { return val == MAX_VAL; });
 }
 int main() {
-
+    std::fill(arr.begin(), arr.end(), 0);
     int tail = arr.size() - 1;
-    for (std::size_t idx = 0; idx < arr.size(); idx += 1) {
-        arr.at(idx) = 0;
-    }
 
     do {
         for (short val = 0; val <= MAX_VAL; val += 1) {
