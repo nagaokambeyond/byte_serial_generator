@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <chrono>
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -31,6 +32,8 @@ bool is_end() {
     return std::all_of(arr.begin(), arr.end(), [](short val) { return val == MAX_VAL; });
 }
 int main() {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+
     std::fill(arr.begin(), arr.end(), 0);
     int tail = arr.size() - 1;
 
@@ -46,4 +49,9 @@ int main() {
         carry(tail);
     } while (!is_end());
     display();
+
+    std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
+    std::chrono::microseconds dur = end - start;
+    long long msec = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+    std::cout << msec << " milli sec \n";
 }
