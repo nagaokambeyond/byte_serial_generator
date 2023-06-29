@@ -14,11 +14,11 @@ void display() {
     std::cout << std::endl;
 }
 
-void carry(int idx) {
+void carry(const int idx) {
     if (arr.at(idx) <= MAX_VAL) {
         return;
     }
-    int next_idx = idx - 1;
+    const int next_idx = idx - 1;
     if (next_idx >= 0) {
         arr.at(idx) = 0;
         arr.at(next_idx) += 1;
@@ -35,7 +35,7 @@ int main() {
     std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
 
     std::fill(arr.begin(), arr.end(), 0);
-    int tail = arr.size() - 1;
+    const int tail = arr.size() - 1;
 
     do {
         for (short val = 0; val <= MAX_VAL; val += 1) {
