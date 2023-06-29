@@ -1,9 +1,22 @@
 {
+  "workbench.colorTheme": "Visual Studio 2017 Light - C++",
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.default.cppStandard": "c++17",
+  "c-cpp-flylint.lizard.enable": false,
+  "c-cpp-flylint.flexelint.severityLevels": {
+      "Error": "Error",
+      "Warning": "Warning",
+      "Info": "Information",
+      "Note": "Hint"
+  },
+  "c-cpp-flylint.flexelint.enable": false,
+  "c-cpp-flylint.flawfinder.enable": false,
   "code-runner.executorMap": {
     "cpp": "cd $dir && runFiles=`ls *.cpp` && g++ -std=c++17 `echo ${runFiles}` -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
   },
   "[cpp]": {
     "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "files.associations": {
