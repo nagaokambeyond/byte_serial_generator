@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -27,12 +28,7 @@ void carry(int idx) {
 }
 
 bool is_end() {
-    for (short val : arr) {
-        if (val != MAX_VAL) {
-            return false;
-        }
-    }
-    return true;
+    return std::all_of(arr.begin(), arr.end(), [](short val) { return val == MAX_VAL; });
 }
 int main() {
 
