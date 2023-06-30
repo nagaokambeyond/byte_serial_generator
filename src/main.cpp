@@ -1,11 +1,11 @@
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <iomanip>
 #include <iostream>
-#include <vector>
 
 const short MAX_VAL = 255;
-std::vector<short> arr = {0, 0, 0, 0};
+std::array<short, 4> arr;
 
 void display() {
     for (short val : arr) {
@@ -52,5 +52,5 @@ int main() {
     std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
     std::chrono::microseconds dur = end - start;
     long long msec = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
-    std::cout << msec << " milli sec \n";
+    std::cout << std::dec << msec << " milli sec \n";
 }
