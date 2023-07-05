@@ -7,7 +7,7 @@
 const short MAX_VAL = 255;
 std::array<short, 4> arr;
 
-void display() {
+void display(void) {
     for (short val : arr) {
         std::cout << std::hex << std::setw(2) << std::setfill('0') << val;
     }
@@ -27,10 +27,11 @@ void carry(const int idx) {
     carry(next_idx);
 }
 
-bool is_end() {
+bool is_end(void) {
     return std::all_of(arr.begin(), arr.end(), [](short val) { return val == MAX_VAL; });
 }
-int main() {
+
+int main(void) {
     const auto start = std::chrono::system_clock::now();
 
     std::fill(arr.begin(), arr.end(), 0);
