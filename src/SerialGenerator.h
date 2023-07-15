@@ -7,8 +7,9 @@ class SerialGenerator {
   private:
     const short MAX_VAL = 255;
     std::array<short, 4> arr;
+    const int tail = arr.size() - 1;
     bool isEnd(void);
-    void carry(const int idx);
+    void carry(void);
 
   public:
     SerialGenerator(void);
